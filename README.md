@@ -31,19 +31,19 @@ Full-stack system that orchestrates scheduled headline collection from multiple 
 The API is deployed as a live service using a managed hosting platform (Render), demonstrating environment-based configuration, build pipelines, and runtime logging. Kubernetes manifests are included for orchestration and scaling practice in a local cluster.
 
 **Key features**
-FastAPI backend with clear API contracts and health checks
-Scheduled collection pipeline (batch ingestion → compute → persist → serve)
-MongoDB persistence with resilient read/write patterns
-Observability: Prometheus metrics endpoint and Grafana dashboards
-Docker + Kubernetes manifests for containerization and orchestration practice
+- FastAPI backend with clear API contracts and health checks
+- Scheduled collection pipeline (batch ingestion → compute → persist → serve)
+- MongoDB persistence with resilient read/write patterns
+- Observability: Prometheus metrics endpoint and Grafana dashboards
+- Docker + Kubernetes manifests for containerization and orchestration practice
 CI/CD pipeline with automated linting, testing, secret detection, and smoke validation
-React frontend dashboard for visualization and interaction
-Reuses the Go-Monitor Project to scrape and visualize API usage metrics into Grafana and Prometheus
+- React frontend dashboard for visualization and interaction
+- Reuses the Go-Monitor Project to scrape and visualize API usage metrics into Grafana and Prometheus
 
 **Design considerations**
-Explores tradeoffs between document-style and relational data models based on ingestion flexibility, query patterns, and aggregation needs
-Separates ingestion, processing, and API layers for clarity and maintainability
-Designed to fail fast in CI when quality or safety checks do not pass
+- Explores tradeoffs between document-style and relational data models based on ingestion flexibility, query patterns, and aggregation needs
+- Separates ingestion, processing, and API layers for clarity and maintainability
+- Designed to fail fast in CI when quality or safety checks do not pass
 
 ---
 
@@ -55,14 +55,14 @@ Lightweight Go service exposing custom Prometheus metrics to demonstrate applica
 This project implements a minimal HTTP service written in Go that publishes operational metrics in Prometheus format. It demonstrates how applications expose internal state for scraping, aggregation, and alerting in production monitoring systems.
 
 **Key features**
-Custom Prometheus metrics implemented using the Go Prometheus client
-HTTP server exposing a /metrics endpoint
-Example metrics like:
-  Request counts
-  Request duration
-  Application health indicators
-Designed to integrate with Prometheus scraping and Grafana dashboards
-Used by other projects in this organization (e.g., News Sentiment Comparison) to expose and visualize real API usage metrics.
+- Custom Prometheus metrics implemented using the Go Prometheus client
+- HTTP server exposing a /metrics endpoint
+- Example metrics like:
+  - Request counts
+  - Request duration
+  - Application health indicators
+- Designed to integrate with Prometheus scraping and Grafana dashboards
+- Used by other projects in this organization (e.g., News Sentiment Comparison) to expose and visualize real API usage metrics.
 
 
 ---
@@ -73,13 +73,13 @@ Repo: network-automation-projects/docker-kubernetes-demo
 Hands-on Kubernetes lab demonstrating core container orchestration concepts using Pods, Deployments, and Services. The lab progresses from fragile single-pod deployments to production-ready, self-healing, load-balanced applications.
 
 **Key features**
-Declarative Infrastructure using YAML manifests
-Pod Lifecycle Management as the basic execution unit
-ReplicaSets & Fault Tolerance through Deployments
-Self-Healing via automatic pod replacement
-Service Discovery with stable networking abstractions
-Load Balancing across multiple replicas
-Safe Teardown & Redeploy Workflows
+- Declarative Infrastructure using YAML manifests
+- Pod Lifecycle Management as the basic execution unit
+- ReplicaSets & Fault Tolerance through Deployments
+- Self-Healing via automatic pod replacement
+- Service Discovery with stable networking abstractions
+- Load Balancing across multiple replicas
+- Safe Teardown & Redeploy Workflows
 
 ---
 
@@ -106,12 +106,12 @@ Python CLI tool that validates device and environment readiness before automatio
 The tool is designed as a guardrail for automation workflows, ensuring prerequisites are met before any configuration or action is attempted.
 
 **Key features**
-YAML-based inventory and configuration loading
-Input validation using structured schemas
-Pre-execution checks (connectivity, OS version, uptime, required variables)
-Dry-run mode to validate inputs without making changes
-Clear exit codes to signal validation outcomes
-Structured logging for auditability and troubleshooting
+- YAML-based inventory and configuration loading
+- Input validation using structured schemas
+- Pre-execution checks (connectivity, OS version, uptime, required variables)
+- Dry-run mode to validate inputs without making changes
+- Clear exit codes to signal validation outcomes
+- Structured logging for auditability and troubleshooting
 
 **Use case**
 Reducing risk in network automation by failing fast when prerequisites are not met.
@@ -124,11 +124,11 @@ Repo: network-automation-projects/automation-failure-simulator
 Python-based simulation tool designed to model partial failures and error conditions commonly encountered in automation workflows. This project explores how automation behaves when things go wrong, rather than expecting success.
 
 **Key features**
-Simulated failure scenarios (timeouts, partial responses, invalid state)
-Explicit handling of recoverable vs non-recoverable errors
-Retry and backoff patterns
-Structured error reporting and logging
-Designed to test idempotency and failure handling logic
+- Simulated failure scenarios (timeouts, partial responses, invalid state)
+- Explicit handling of recoverable vs non-recoverable errors
+- Retry and backoff patterns
+- Structured error reporting and logging
+- Designed to test idempotency and failure handling logic
 
 **Use case**
 Practicing resilient automation design by validating behavior under partial failure and degraded conditions.
@@ -156,13 +156,13 @@ Repo: network-automation-projects/dashboard-netmiko
 First version simply imported netmiko class and showed mock data strings.  New version connects to Nokia practice servers using multiple concurrent connections with ThreadPoolExecutor, collects device facts and performs configuration backups in parallel, with data persisted in SQLite and exposed through a REST API.
 
 **Planned features**
-Concurrent SSH connections to multiple network devices using ThreadPoolExecutor
-Device fact collection (hostname, model, OS version, uptime, etc.)
-Automated configuration backups executed in parallel
-Persistent storage of device data and backups using SQLite
-REST API for querying collected device information
-Designed to support both mock data (early development) and live device connections
-Structured logging and error handling for connection and execution failures
+- Concurrent SSH connections to multiple network devices using ThreadPoolExecutor
+- Device fact collection (hostname, model, OS version, uptime, etc.)
+- Automated configuration backups executed in parallel
+- Persistent storage of device data and backups using SQLite
+- REST API for querying collected device information
+- Designed to support both mock data (early development) and live device connections
+- Structured logging and error handling for connection and execution failures
 
 **Current state**
 Initial version used mocked Netmiko responses for UI and data flow testing
